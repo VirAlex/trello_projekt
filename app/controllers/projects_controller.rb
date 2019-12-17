@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
-    @teams = current_user.teams
+    @team = Team.where('id = ?', current_user.team_id)
   end
 
   # POST /projects

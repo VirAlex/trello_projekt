@@ -292,7 +292,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
-  wysiwyg-rails (~> 3.0, >= 3.0.6)
+  wysiwyg-rails
 
 RUBY VERSION
    ruby 2.6.3p62
