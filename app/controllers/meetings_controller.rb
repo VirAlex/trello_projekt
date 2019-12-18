@@ -4,7 +4,7 @@ class MeetingsController < ApplicationController
   # GET /meetings
   # GET /meetings.json
   def index
-    @meetings = Meeting.all
+    @meetings = Meeting.where('team_id = ?', current_user.team_id)
   end
 
   # GET /meetings/1
@@ -14,9 +14,9 @@ class MeetingsController < ApplicationController
 
   # GET /meetings/new
   def new
+    @meeting = Meeting.new
     @user = current_user
-    @team = Team.where('id = ?', current_user.team_id)
-    @meeting = current_user.meetings.build
+    @team = Team.find(params[:team_id])
 
   end
 
@@ -27,9 +27,8 @@ class MeetingsController < ApplicationController
   # POST /meetings
   # POST /meetings.json
   def create
-    @meeting = current_user.meetings.build(meeting_params)
     @team = Team.find(params[:team_id])
-
+    @meeting = Meeting.new(meeting_params)
 
     respond_to do |format|
       if @meeting.save
