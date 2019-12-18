@@ -19,3 +19,6 @@ require("channels")
 document.addEventListener('turbolinks:load', () => {
   $for('#project_description').froalaEditor();
 });
+
+require("trix")
+require("@rails/actiontext")
