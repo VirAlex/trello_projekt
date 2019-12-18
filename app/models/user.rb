@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :projects
   has_many :teams
+  has_many :meetings
 
 
   # new function to set the password without knowing the current

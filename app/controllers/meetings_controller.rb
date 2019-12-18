@@ -14,8 +14,10 @@ class MeetingsController < ApplicationController
 
   # GET /meetings/new
   def new
-    @team = Team.where('id = ?', current_user.team_id)
     @user = current_user
+    @team = Team.where('id = ?', current_user.team_id)
+    @meeting = current_user.meetings.build
+
   end
 
   # GET /meetings/1/edit
@@ -25,7 +27,9 @@ class MeetingsController < ApplicationController
   # POST /meetings
   # POST /meetings.json
   def create
-    @meeting = Meeting.new(meeting_params)
+    @meeting = current_user.meetings.build(meeting_params)
+    @team = Team.find(params[:team_id])
+
 
     respond_to do |format|
       if @meeting.save
@@ -70,6 +74,6 @@ class MeetingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def meeting_params
-      params.require(:meeting).permit(:name, :start_time, :end_time)
+      params.require(:meeting).permit(:name, :start_time, :end_time, :user_id, :team_id)
     end
 end
