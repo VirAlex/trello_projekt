@@ -48,4 +48,11 @@
     <%= link_to 'Back', teams_path, class:'button' %>
     </div>
   </div>
+  <p class="title is-5 border-bottom pb3 has-text-centered">Calendrier <%= @team.name %></p>
+<%= month_calendar events: @meetings do |date, meetings| %>
+  <%= date.strftime("%d/ %b") %>
+  <% meetings.each do |meeting| %>
+  <p class="meeting_name"><%= meeting.name %></p>
+  <% end %>
+<% end %>
 </section>

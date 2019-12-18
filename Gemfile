@@ -29,6 +29,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 gem "wysiwyg-rails"
 gem 'public_activity', '~> 1.6', '>= 1.6.4'
 gem 'image_processing', '~> 1.2'
+gem "simple_calendar", "~> 2.0"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

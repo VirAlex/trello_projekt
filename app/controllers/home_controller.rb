@@ -3,6 +3,7 @@ class HomeController < ApplicationController
     if user_signed_in?
     @teams = Team.where('id = ?', current_user.team_id)
     @projects = Project.where('team_id = ?', current_user.team_id)
+    @meetings = Meeting.all
     else
     end
 
