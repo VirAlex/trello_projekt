@@ -1,5 +1,5 @@
 class MeetingsController < ApplicationController
-  before_action :set_meeting, only: [:show, :edit, :update]
+  before_action :set_meeting, only: [:show, :edit, :update, :destroy]
 
   # GET /meetings
   # GET /meetings.json
@@ -64,10 +64,10 @@ class MeetingsController < ApplicationController
     # puts @team
     puts @meeting
     @meeting.destroy
-    respond_to do |format|
-      format.html notice: 'Meeting was successfully destroyed.'
-      format.json { head :no_content }
-    end
+    # respond_to do |format|
+    #   format.html notice: 'Meeting was successfully destroyed.'
+    #   format.json { head :no_content }
+    # end
   end
 
   private
