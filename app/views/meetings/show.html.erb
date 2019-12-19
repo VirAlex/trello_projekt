@@ -15,5 +15,6 @@
   <%= @meeting.end_time %>
 </p>
 
-<%#= link_to 'Edit', edit_meeting_path(@meeting) %> |
-<%#= link_to 'Back', meetings_path %>
+<%= link_to 'Edit', edit_team_meeting_path(@meeting) %> |
+<%= link_to 'Back', team_path %>
+<%= link_to 'Delete Event', team_meeting_path(@meeting), method: :delete, data: { confirm: 'Are you sure'}%>

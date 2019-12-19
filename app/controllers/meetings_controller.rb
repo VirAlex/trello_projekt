@@ -1,5 +1,5 @@
 class MeetingsController < ApplicationController
-  before_action :set_meeting, only: [:show, :edit, :update, :destroy]
+  before_action :set_meeting, only: [:show, :edit, :update]
 
   # GET /meetings
   # GET /meetings.json
@@ -60,9 +60,12 @@ class MeetingsController < ApplicationController
   # DELETE /meetings/1
   # DELETE /meetings/1.json
   def destroy
+    # @team = Team.find(params[:id])
+    # puts @team
+    puts @meeting
     @meeting.destroy
     respond_to do |format|
-      format.html { redirect_to meetings_url, notice: 'Meeting was successfully destroyed.' }
+      format.html notice: 'Meeting was successfully destroyed.'
       format.json { head :no_content }
     end
   end
