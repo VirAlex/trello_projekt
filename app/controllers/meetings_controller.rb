@@ -29,11 +29,13 @@ class MeetingsController < ApplicationController
   def create
     @team = Team.find(params[:team_id])
     @meeting = Meeting.new(meeting_params)
+    @user = current_user
 
     respond_to do |format|
       if @meeting.save
-        format.html { redirect_to @meeting, notice: 'Meeting was successfully created.' }
-        format.json { render :show, status: :created, location: @meeting }
+        puts @team[:team_id]
+        format.html { redirect_to team_path(@team, @user), notice: 'Meeting was successfully created.' }
+        format.json { render :show, status: :created, location: team_path(@team, @user) }
       else
         format.html { render :new }
         format.json { render json: @meeting.errors, status: :unprocessable_entity }
