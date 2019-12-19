@@ -11,7 +11,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
-    @meetings = Meeting.all
+    @meetings = Meeting.where('team_id = ?', current_user.team_id)
     # Team.where('id = ?', current_user.team_id)
   end
 
@@ -62,7 +62,7 @@ class TeamsController < ApplicationController
   def destroy
     @team.destroy
     respond_to do |format|
-      format.html { redirect_to teams_url, notice: 'Team was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Team was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

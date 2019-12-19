@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
   def index
     if user_signed_in?
-    @teams = Team.where('id = ?', current_user.team_id)
-    @projects = Project.where('team_id = ?', current_user.team_id)
-    @meetings = Meeting.all
+      @teams = Team.where('id = ?', current_user.team_id)
+      @projects = Project.where('team_id = ?', current_user.team_id)
+      @meetings = Meeting.where('team_id=?', current_user.team_id)
     else
     end
 

@@ -46,6 +46,7 @@
     <div class="utility-buttons">
     <%= link_to 'Edit', edit_team_path(@team), class:'button' %>
     <%= link_to 'Back', teams_path, class:'button' %>
+    <%= link_to 'Delete', team_path(@team), method: :delete, data: { confirm: 'Are you sure'} %>
     </div>
   </div>
   <p class="title is-5 border-bottom pb3 has-text-centered">Calendrier <%= @team.name %></p>
