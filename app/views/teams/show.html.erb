@@ -54,7 +54,7 @@
 <%= month_calendar events: @meetings do |date, meetings| %>
   <%= date.strftime("%d/ %b") %>
   <% meetings.each do |meeting| %>
-  <p class="meeting_name"><%= link_to meeting.name, team_meeting_path(@team,meeting) ,class:'button' %><%= link_to "Supprimer", team_meeting_path(@team,meeting) , method: :delete, remote: true, data: { confirm: 'Are you sure'}, class:'button' %></p>
+  <p class="meeting_name"><%= link_to meeting.name, team_meeting_path(@team,meeting) ,class:'button' %><%= link_to "", team_meeting_path(@team,meeting) , method: :delete, remote: true, data: { confirm: 'Are you sure'}, class:'fa fa-trash' %></p>
 
   <% end %>
 <% end %>
